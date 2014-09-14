@@ -37,6 +37,9 @@ Options
 
 * `currentPathOnly` (boolean) - show element not for the whole website, but for current path only. It can be useful when you want to show hints for newbies for multiple pages of your website.
 
+* `currentPathStartsWith` - useful when you want to display a hint for certain page, but have multiple paths like `/product/1`, `/product/2`, `/product/3`, etc. In this case just set `currentPathStartsWith` variable to `/product/`. A hint will be shown only once on set of pages. `currentPathOnly` option must be set to `true`. 
+
+
 Dependencies
 ------------
 

@@ -1,5 +1,5 @@
 /*
- * First Visit Js jQuery Plugin version 0.1
+ * First Visit Js jQuery Plugin version 0.1.2
  * Roman Pushkin - roman.pushkin@gmail.com
  */
 ;(function($){
@@ -19,13 +19,26 @@
 
 		var settings = {
 			classToAdd: '',
-			currentPathOnly: false
+			currentPathOnly: false,
+			currentPathStartsWith: ''
 		};
 
 		$.extend(settings, options);
 
+		if(settings.currentPathOnly && settings.currentPathStartsWith)
+		{
+			if(window.location.pathname.indexOf(settings.currentPathStartsWith) != 0)
+			{
+				console.warn('Incorrect usage of currentPathStartsWith.');
+				return;
+			}
+		}
+
 		var getVisitKeyName = function() {
-			return settings.currentPathOnly ? VISIT_KEY_NAME + '_' + window.location.pathname : VISIT_KEY_NAME;
+			return settings.currentPathOnly ?
+				VISIT_KEY_NAME + '_' +
+				(settings.currentPathStartsWith ? settings.currentPathStartsWith : window.location.pathname) + '_'
+				: VISIT_KEY_NAME;
 		}
 
 		var setVisitKey = function() {
@@ -37,12 +50,18 @@
 			return window.localStorage.getItem(getVisitKeyName());
 		}
 
+		var startsWith = function (str){
+    		return this.indexOf(str) == 0;
+  		};
+
 		// get last visit variable
 		if(!visitKey) {
 			visitKey = getVisitKey();
 		}
 
 		if(!visitKey) {
+
+
 			setVisitKey();
 			
 			// show
