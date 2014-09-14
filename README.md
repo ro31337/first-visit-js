@@ -11,6 +11,12 @@ How to use
 
         <script src="first-visit.js"></script>
 
+* Create div with hint text (you can use any class name you want):
+
+        <div class="hint" style="display: none">
+            Hello to first time visitors!
+        </div>
+
 * Init first-visit.js:
 
         $(function() {
