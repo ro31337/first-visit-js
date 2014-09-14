@@ -34,6 +34,7 @@ Options
 			});
         });
 
+* `currentPathOnly` (boolean) - show element not for the whole website, but for current path only. It can be useful when you want to show hints for newbies for multiple pages of your website.
 
 Dependencies
 ------------

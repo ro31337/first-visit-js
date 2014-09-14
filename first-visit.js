@@ -18,18 +18,23 @@
 		var $elements = $(this);
 
 		var settings = {
-			classToAdd: ''
+			classToAdd: '',
+			currentPathOnly: false
 		};
 
 		$.extend(settings, options);
 
+		var getVisitKeyName = function() {
+			return settings.currentPathOnly ? VISIT_KEY_NAME + '_' + window.location.pathname : VISIT_KEY_NAME;
+		}
+
 		var setVisitKey = function() {
 			var date = new Date();
-			window.localStorage.setItem(VISIT_KEY_NAME, date);
+			window.localStorage.setItem(getVisitKeyName(), date);
 		}
 
 		var getVisitKey = function() {
-			return window.localStorage.getItem(VISIT_KEY_NAME);
+			return window.localStorage.getItem(getVisitKeyName());
 		}
 
 		// get last visit variable
