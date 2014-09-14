@@ -6,6 +6,14 @@
 		<meta charset="utf-8">
 		<title>First Visit Js Demo</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script src="jquery-2.1.1.min.js"></script>
+		<script src="first-visit.js"></script>
+
+		<style type="text/css">
+		.yellow-background {
+			background-color: yellow;
+		}
+		</style>
 	</head>
 
 	<body>
@@ -15,7 +23,21 @@
 			<p>
 				Hey there!
   			</p>
+  			<p class="hint-for-newbies" style="display: none">
+  				You're for the first time here, right?<br />
+  				Feel free to check our <a href="#">help</a>.
+  			</p>
+  			<p>
+  				P.S. Open incognito window to view hint again
+  			</p>
+
   		</div>
+
+  		<script type="text/javascript">
+  		$(function() {
+			$('.hint-for-newbies').firstVisit({ classToAdd: 'yellow-background'});
+  		});
+  		</script>
 
 	</body>
 
