@@ -35,6 +35,12 @@ Options
         });
 
 
+Dependencies
+------------
+
+* jquery
+* [Modernizr](https://github.com/Modernizr/Modernizr) if you need support for old browsers.
+
 License
 ---------
 
