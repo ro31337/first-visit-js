@@ -50,17 +50,12 @@
 			return window.localStorage.getItem(getVisitKeyName());
 		}
 
-		var startsWith = function (str){
-    		return this.indexOf(str) == 0;
-  		};
-
 		// get last visit variable
 		if(!visitKey) {
 			visitKey = getVisitKey();
 		}
 
 		if(!visitKey) {
-
 
 			setVisitKey();
 			
